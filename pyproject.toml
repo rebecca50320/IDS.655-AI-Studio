@@ -1,0 +1,25 @@
+[project]
+name = "dad_s_daily_digital_twin"
+version = "0.1.0"
+description = "dad_s_daily_digital_twin using crewAI"
+authors = [{ name = "Rebecca", email = "rebecca@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[tools]>=0.177.0,<1.0.0",
+    "python-dotenv>=1.0.0"
+]
+
+[project.scripts]
+dad_s_daily_digital_twin = "dad_s_daily_digital_twin.main:run"
+run_crew = "dad_s_daily_digital_twin.main:run"
+train = "dad_s_daily_digital_twin.main:train"
+replay = "dad_s_daily_digital_twin.main:replay"
+test = "dad_s_daily_digital_twin.main:test"
+generate_email = "generate_email:run_crew_and_extract_email"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"

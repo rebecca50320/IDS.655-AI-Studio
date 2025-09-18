@@ -1,0 +1,48 @@
+---
+research_today_s_class:
+  description: "Identify what class Rebecca has today based on the current day of
+    the week and create a simple, one-sentence explanation that a parent can easily
+    understand. Use the embedded weekly schedule:\n\n- Monday: AI/ML for engineering
+    design\n- Tuesday: Deep Learning  \n- Wednesday: Managing Innovation in Financial
+    Institutions\n- Thursday: AI Venture Studio\n- Friday: No class\n\nTake the class
+    for today and explain it in simple, jargon-free language that makes it easy for
+    a parent to understand what their child is learning."
+  expected_output: A clear identification of today's class and a simple, parent-friendly
+    explanation of what the class covers, avoiding technical jargon
+  agent: information_collector
+research_nvidia_stock:
+  description: Find the current NVIDIA stock price and any relevant recent news or
+    developments that might be interesting for investment discussion. Focus on information
+    that would be valuable for someone who owns NVIDIA stock to know about.
+  expected_output: Current NVIDIA stock price with recent news, trends, or developments
+    that would be relevant for investment discussion
+  agent: information_collector
+draft_heartwarming_email:
+  description: "Using the collected information, draft a heartwarming daily email
+    for {dad_email} from {your_name}. The email should include:\n\n1. **Personal Class
+    Update**: Share about today's class using the researched explanation in a warm,
+    personal way\n2. **Caring Health Check-in**: Ask loving questions about {dad_name}'s
+    exercise and healthy eating habits  \n3. **Investment Conversation**: Share the
+    NVIDIA stock information and ask thoughtful questions about his investment position\n\nWrite
+    in {your_name}'s authentic voice with genuine warmth, care, and the special connection
+    you share with dad. Make it feel like a real personal message filled with love."
+  expected_output: A complete email draft with subject line "Daily Update from {your_name}
+    ❤️" containing all sections written in a genuinely heartwarming, personal tone
+    that reflects {your_name}'s unique personality and deep care for their father.
+    Include the email recipient ({dad_email}) and full email content ready for review.
+  agent: heartwarming_email_writer
+  context:
+  - research_today_s_class
+  - research_nvidia_stock
+format_final_email:
+  description: Take the drafted heartwarming email and format it in a clean, copy-ready
+    layout. Present all elements clearly including recipient, subject line, and email
+    content in a way that can be easily copied and saved as a text file or used for
+    manual sending.
+  expected_output: "A perfectly formatted email display with clear sections showing:\n-
+    TO: [recipient email]\n- SUBJECT: [subject line] \n- BODY: [complete email content]\n\nAll
+    formatted in a clean, copy-ready layout that can be easily saved to a text file
+    or copied for manual use."
+  agent: email_formatter
+  context:
+  - draft_heartwarming_email
