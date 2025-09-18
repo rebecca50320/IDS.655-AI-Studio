@@ -120,15 +120,18 @@ HW1_DigitalTwin/
 
 ## Implementation Notes
 
-1. Fetching current stock price
-Tried: SerpAPI Google Finance. In this project it returned 403 Unauthorized.
-Decision: Switched to ScrapeWebsiteTool to read a Google Finance or Yahoo Finance quote card.
-Status: Works for the MVP, but scraping is brittle if page structure changes and quotes may be delayed.
+### 1. Fetching current stock price
+**Tried:** SerpAPI Google Finance; returned 403 Unauthorized.  
+**Decision:** Switched to `ScrapeWebsiteTool` to read a Google Finance or Yahoo Finance quote card.  
+**Status:** Works for the MVP; scraping is brittle if page structure changes and quotes may be delayed.  
+**Next:** Replace with a finance API (Alpha Vantage or Finnhub) or resolve SerpAPI auth.
 
-2. Email delivery
-Issue: Gmail authorization was not completing during setup.
-Decision: Generate email_output.txt and print to terminal for manual send as the MVP.
-Status: Reliable for daily use.
+### 2. Email delivery
+**Issue:** Gmail authorization was not completing during setup.  
+**Decision:** Generate `email_output.txt` and print to terminal for manual send.  
+**Status:** Reliable for daily use.  
+**Next:** Add Gmail API with OAuth token caching or SMTP with an app password as an optional send step.
+
 
 Workflow disclosure: Prototype in CrewAI browser -> Implement and test locally in Cursor -> Push to GitHub
 
