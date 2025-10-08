@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import sys
 from dad_s_daily_digital_twin.crew import DadSDailyDigitalTwinCrew
+from generate_email import run_crew_and_extract_email
 
 # This main file is intended to be a way for your to run your
 # crew locally, so refrain from adding unnecessary logic into this file.
@@ -17,6 +18,7 @@ def run():
         'dad_email': 'sample_value'
     }
     DadSDailyDigitalTwinCrew().crew().kickoff(inputs=inputs)
+    run_crew_and_extract_email()
 
 
 def train():
