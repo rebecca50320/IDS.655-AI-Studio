@@ -27,6 +27,7 @@ The crew has three agents working together:
 * Current class and market snippets
 * Caring prompts for dad’s well-being
 * Simple outputs to file and terminal
+* Text to Speech, read the email out
 
 ## Installation
 
@@ -63,6 +64,11 @@ python3 generate_email.py
 ```
 
 This runs the crew, saves `email_output.txt`, and prints the result.
+
+```bash
+python3 src/generate_email.py | python3 -m kokoro_tts - dad_letter.wav --voice af_heart --lang en-us
+```
+This generates the .wav file of speech
 
 ### Alternative Ways to Run
 
