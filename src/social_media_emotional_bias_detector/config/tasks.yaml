@@ -1,0 +1,31 @@
+---
+process_social_media_content:
+  description: |-
+    Process and validate the provided social media content text from {social_media_content}. Analyze the text to:
+    - Confirm it contains sufficient content for meaningful emotional analysis (at least 20 words)
+    - Identify the likely social media platform (Twitter, Reddit, Facebook, Instagram, etc.)
+    - Extract any visible engagement signals or context clues
+    - Format the content clearly for emotional analysis
+    - Note any hashtags, mentions, or platform-specific elements
+  expected_output: 'A structured analysis of the social media content including: the
+    cleaned and formatted post text, estimated word count, identified platform (if
+    detectable), any engagement context mentioned, key themes or topics, and confirmation
+    that the content is suitable for emotional analysis. Format as clear sections
+    for the emotion analyzer.'
+  agent: social_media_content_processor
+analyze_emotional_bias_and_algorithmic_impact:
+  description: |-
+    Analyze the social media post to detect its dominant emotion (anger, joy, fear, disgust, or sadness) and assign an intensity score (0–10).
+    Then produce a short, human-sounding summary suitable for display in a browser extension tooltip.
+    Your goal is to help the user quickly recognize both the emotional tone and the engagement mechanics of the content without sounding robotic or overly academic.
+
+    Each response should feel personal, emotionally intelligent, and grounded in the specific content.
+  expected_output: |-
+    Return a concise 3-section summary (<80 words total) formatted as:
+
+    Emotion: [dominant emotion emoji + label, intensity 0-10]
+    Algorithmic Cue: [one short sentence about how this emotion drives engagement]
+    Mindful Tip: [one short actionable advice sentence for the user]
+  agent: cognitive_bias_emotion_analyzer
+  context:
+  - process_social_media_content
