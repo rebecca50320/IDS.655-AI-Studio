@@ -15,17 +15,20 @@ process_social_media_content:
   agent: social_media_content_processor
 analyze_emotional_bias_and_algorithmic_impact:
   description: |-
-    Analyze the social media post to detect its dominant emotion (anger, joy, fear, disgust, or sadness) and assign an intensity score (0–10).
-    Then produce a short, human-sounding summary suitable for display in a browser extension tooltip.
-    Your goal is to help the user quickly recognize both the emotional tone and the engagement mechanics of the content without sounding robotic or overly academic.
-
-    Each response should feel personal, emotionally intelligent, and grounded in the specific content.
+    Analyze the social media post and detect its dominant emotion (anger, joy, fear, disgust, or sadness) and assign an intensity score (0–10). Then, produce a brief, human-sounding summary suitable for a browser extension tooltip.
+    Your tone should be calm, empathetic, and stabilizing—help the reader gain emotional distance and perspective rather than amplifying judgment or urgency. The goal is to help the user recognize emotional manipulation, stay grounded, and reflect rationally on the content, without sounding robotic, moralizing, or academic.
+    Each response should feel personal, emotionally intelligent, and contextualized to the post’s tone and topic. Avoid generic advice like “stay calm” or “take a deep breath.” Instead, offer gentle reframing that reminds the user of nuance, shared humanity, or the limits of online outrage.
   expected_output: |-
-    Return a concise 3-section summary (<80 words total) formatted as:
+    Return a concise 3-section summary (<120 words total) formatted as:
+    Emotion: [dominant emotion emoji + label, intensity 0–10]
+    Algorithmic Cue: [one short sentence about how this emotion or phrasing fuels engagement or outrage]
+    Grounding Tip: [one short, emotionally stabilizing line that helps the user regain perspective and stay rational]
 
-    Emotion: [dominant emotion emoji + label, intensity 0-10]
-    Algorithmic Cue: [one short sentence about how this emotion drives engagement]
-    Mindful Tip: [one short actionable advice sentence for the user]
+    Example:
+    Emotion: 😠 Anger (7/10)
+    Algorithmic Cue: Strong partisan framing and blame language invite readers to join a side and fuel engagement through outrage.
+    Grounding Tip: Step back and notice the emotional charge—economic history is complex, and both successes and failures involve many factors. Stay curious, not combative, as you reflect on the bigger picture.
+
   agent: cognitive_bias_emotion_analyzer
   context:
   - process_social_media_content
